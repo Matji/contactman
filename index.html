@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Contact manager</title>
+<link rel="stylesheet" href="css/main.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css"  />
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+
+<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap.min.js"></script>  
+<script type="text/javascript" src="js/apicall.js"></script>
+<style>
+body
+{
+	background-color:#162b3e;
+}
+.contacts-list ul li
+{
+	list-style-type:none;
+	padding:10px;
+	 
+}
+.wrapper
+{
+	margin:0 auto;
+	width:60%;
+	background-color:#25496a;
+	padding-bottom:30px;
+	color:#fff;
+}
+.add_cont, .search_cont
+{
+	margin:0 0 0 50px;
+	background-color:#333;
+	width:600px;
+	padding:10px;
+}
+.app_name
+{
+	background-color:#f77d33;
+	color:#fff;
+}
+input[type=text] 
+{
+	color:#000;
+}
+.title-header
+{
+	background-color:#ffae00;
+	padding:10px;
+	color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+<p class="app_name">Contact Manager</p>
+
+<div class="search_cont">
+    <p class="title-header">Search for contact</p>
+    <table width="100%">
+     <tr>
+       <td>Enter Name</td>
+     </tr>
+     <tr>
+       <td><input type="text" id="f_name" /></td> 
+     </tr> 
+    </table>
+</div>
+
+<div class="list_cont">
+    <div class="contacts-list">
+    <div class="preloader">...</div>
+       <ul>
+       </ul>
+    </div>
+</div>
+
+<div class="add_cont">
+    <p class="title-header">Add new Contact</p>
+    <table width="100%">
+     <tr>
+       <td>Name</td><td>Email</td><td>Phone</td>
+     </tr>
+     <tr>
+       <td><input type="text" id="c_name"/></td>
+       <td><input type="text" id="email"/></td>
+       <td><input type="text" id="phone"/></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td><br><input type="button" value="Add Contact" onclick="addContact()" class="btn btn-default"/></td>
+     </tr>
+    </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog" 
+   aria-labelledby = "myModalLabel" aria-hidden = "true">
+   
+   <div class = "modal-dialog">
+      <div class = "modal-content">
+         
+         <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+               ×
+            </button>
+            
+            <h4 class = "modal-title" id = "myModalLabel">
+               This Modal title
+            </h4>
+         </div>
+         
+         <div class = "modal-body">
+            <table>
+             <tr>
+             <td>Name</td><td>Email</td><td>Phone</td></tr>
+             <tr>
+                 <td>
+                 <input type="hidden" value="" id="edit_id">
+                 <input type="text" value="" id="edit_name"></td>
+                 <td><input type="text" value="" id="edit_email"></td>
+                 <td><input type="text" value="" id="edit_phone"></td>
+             </tr>
+            </table>
+         </div>
+         
+         <div class = "modal-footer">
+            <button type = "button" class = "btn btn-default" data-dismiss = "modal">
+               Close
+            </button>
+            
+            <button type = "button" class = "btn btn-primary" onclick="editContacts()">
+               Submit changes
+            </button>
+         </div>
+         
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+   
+</div><!-- /.modal -->
+</body>
+</html>
